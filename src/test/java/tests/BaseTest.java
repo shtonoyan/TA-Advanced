@@ -7,12 +7,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
 public abstract class BaseTest {
-    protected String baseURL;
-
     @BeforeSuite
     public void loadProperties() {
-        PropertyReader.loadConfig("application");
-        baseURL = PropertyReader.getProperty("baseUrl");
+        PropertyReader.loadConfig("localhostRP");
     }
 
     @BeforeClass

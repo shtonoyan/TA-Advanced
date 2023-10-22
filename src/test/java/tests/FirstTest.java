@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -14,11 +13,11 @@ public class FirstTest extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @Description("Login to RP application")
     public void myFirstTest() {
-        Selenide.open(baseURL + "/ui/#login");
-        CustomLogger.log("Browser Opened!!!");
         LoginPage loginPage = new LoginPage();
+        loginPage.open();
+        CustomLogger.log("Browser Opened!!!");
         loginPage.completeLogin(PropertyReader.getProperty("username"));
-        loginPage.completePassword("password");
+        loginPage.completePassword(PropertyReader.getProperty("password"));
         loginPage.clickLoginButton();
     }
 }
