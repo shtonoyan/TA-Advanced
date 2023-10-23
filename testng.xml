@@ -3,8 +3,8 @@
 <suite name="All Test Suite" thread-count="3" parallel="classes">
     <test verbose="2" name="C:/Users/Shushanik_Tonoyan/IdeaProjects/untitled">
         <classes>
-            <class name="tests.testngtest.FirstTest"></class>
-            <class name="tests.testngtest.LoginTestNgTest"></class>
+            <class name="tests.testngtest.FirstTest"/>
+            <class name="tests.testngtest.LoginTestNgTest"/>
         </classes>
 
     </test>
