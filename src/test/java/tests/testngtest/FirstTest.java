@@ -1,4 +1,4 @@
-package tests;
+package tests.testngtest;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;

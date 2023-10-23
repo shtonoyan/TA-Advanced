@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import org.example.core.CustomLogger;
 import org.example.ui.PagePaths;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.By.name;
@@ -15,6 +16,7 @@ public class LoginPage extends BasePage {
     private final SelenideElement loginField = $(name("login"));
     private final SelenideElement passwordField = $(name("password"));
     private final SelenideElement loginButton = Selenide.$(Selectors.byText("Login"));
+    private final SelenideElement errorMessageContainer = Selenide.$(".notification-transition-enter-done");
 
     @Step("Complete the username")
     public void completeLogin(String login) {
@@ -35,8 +37,20 @@ public class LoginPage extends BasePage {
         CustomLogger.log("Clicking the login button");
     }
 
+    @Step("Verify error message")
+    public void verifyErrorMessage(String errorMessage){
+        errorMessageContainer.shouldHave(text(errorMessage));
+    }
+
     @Override
     protected String getCurrentPageUrl() {
         return PagePaths.LOGIN_PAGE;
     }
+
+    public void loginToApplication(String username, String password){
+        completeLogin(username);
+        completePassword(password);
+        clickLoginButton();
+    }
+
 }
