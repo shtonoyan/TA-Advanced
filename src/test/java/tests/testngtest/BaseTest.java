@@ -1,4 +1,4 @@
-package tests;
+package tests.testngtest;
 
 import org.example.core.PropertyReader;
 import org.example.ui.webdriver.WebDriverManager;
