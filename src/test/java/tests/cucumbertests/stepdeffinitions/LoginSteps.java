@@ -1,15 +1,10 @@
 package tests.cucumbertests.stepdeffinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.core.PropertyReader;
 import org.example.ui.pages.LoginPage;
-import org.example.ui.webdriver.WebDriverManager;
-
 public class LoginSteps {
     LoginPage loginPage = new LoginPage();
 
