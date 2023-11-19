@@ -21,15 +21,15 @@ public class LaunchesPage extends BasePage{
         Selenide.$(Selectors.byText(text)).shouldBe(Condition.visible);
     }
     public void sortByTotal(){
-        Selenide.$x("//span[text()='total']/following-sibling::span/ancestor::div[@class='headerCell__title-container--Bt3as']").shouldBe(Condition.enabled).click();
+        Selenide.$x("//span[text()='total']/ancestor::div[@class='headerCell__title-container--cTbKe']").shouldBe(Condition.enabled).click();
     }
 
     public void sortByPassed(){
-        Selenide.$x("//span[text()='passed']/following-sibling::span/ancestor::div[@class='headerCell__title-container--Bt3as']").shouldBe(Condition.enabled).click();
+        Selenide.$x("//span[text()='passed']/ancestor::div[@class='headerCell__title-container--cTbKe']").shouldBe(Condition.enabled).click();
     }
 
     public void sortByFailed(){
-        Selenide.$x("//span[text()='failed']/following-sibling::span/ancestor::div[@class='headerCell__title-container--Bt3as']").shouldBe(Condition.enabled).click();
+        Selenide.$x("//span[text()='failed']/ancestor::div[@class='headerCell__title-container--cTbKe']").shouldBe(Condition.enabled).click();
     }
 
     public List<String> getTotalValues(){

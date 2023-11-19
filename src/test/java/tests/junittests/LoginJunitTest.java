@@ -22,7 +22,7 @@ public class LoginJunitTest extends BaseJunitTest {
         loginPage.completePassword(password);
         loginPage.clickLoginButton();
 
-        loginPage.verifyErrorMessage("An error occurred while connecting to server: You do not have enough permissions. Bad credentials");
+        loginPage.verifyErrorMessage();
 
     }
 }

@@ -16,6 +16,7 @@ public class LoginPage extends BasePage {
     private final SelenideElement loginField = $(name("login"));
     private final SelenideElement passwordField = $(name("password"));
     private final SelenideElement loginButton = Selenide.$(Selectors.byText("Login"));
+    private final SelenideElement welcomeMessage = Selenide.$(Selectors.byText("Welcome,"));
     private final SelenideElement errorMessageContainer = Selenide.$(".notification-transition-enter-done");
 
     @Step("Complete the username")
@@ -38,8 +39,12 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Verify error message")
-    public void verifyErrorMessage(String errorMessage){
-        errorMessageContainer.shouldHave(text(errorMessage));
+    public void verifyErrorMessage(){
+        errorMessageContainer.shouldHave(text("An error occurred while connecting to server: You do not have enough permissions. Bad credentials"));
+    }
+
+    public void userLoggedIn() {
+        welcomeMessage.shouldNotBe(visible);
     }
 
     @Override
@@ -47,7 +52,7 @@ public class LoginPage extends BasePage {
         return PagePaths.LOGIN_PAGE;
     }
 
-    public void loginToApplication(String username, String password){
+    public void loginToApplication(String username, String password) {
         completeLogin(username);
         completePassword(password);
         clickLoginButton();
