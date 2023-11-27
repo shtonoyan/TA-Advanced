@@ -37,7 +37,7 @@ public class DashboardApi {
 
     public static Response deleteDashboard(String token, String projectName, int dashboardId){
         return ApiBase.delete(
-                Paths.DASHBOARD_EDIT,
+                Paths.DASHBOARD_DELETE,
                 token,
                 Map.of("projectName", projectName, "dashboardId", String.valueOf(dashboardId))
         );
