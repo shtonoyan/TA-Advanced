@@ -5,6 +5,8 @@
         <classes>
             <class name="tests.testngtest.FirstTest"/>
             <class name="tests.testngtest.LoginTestNgTest"/>
+            <class name="tests.testngtest.apitests.DashboardTest"></class>
+            <class name="tests.testngtest.apitests.LaunchesTest"></class>
         </classes>
 
     </test>
