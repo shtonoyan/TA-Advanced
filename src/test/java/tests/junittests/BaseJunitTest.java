@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 public abstract class BaseJunitTest {
     @BeforeAll
     public static void loadProperties() {
-        PropertyReader.loadConfig("localhostRP");
+        PropertyReader.loadConfig("webRP");
     }
 
     @BeforeAll
