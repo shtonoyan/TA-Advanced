@@ -3,16 +3,16 @@ package org.example.core;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 import org.openqa.selenium.support.events.WebDriverListener;
 
 public class LocalEventFiringListener implements WebDriverListener {
     public void beforeClick(WebElement element) {
-        System.out.printf("Going to click");
+        CustomLogger.log("Going to click");
     }
 
     public void afterClick(WebElement element) {
-        System.out.printf("Clicked Already");
+        CustomLogger.log("Element clicked");
+
     }
 
     public void beforeFindElement(WebDriver driver, By locator) {

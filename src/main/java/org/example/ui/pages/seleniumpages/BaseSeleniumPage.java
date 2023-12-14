@@ -6,7 +6,6 @@ import org.example.ui.webdriver.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringDecorator;
-import org.openqa.selenium.support.events.WebDriverListener;
 
 public abstract class BaseSeleniumPage {
     protected static final String BASE_URL = PropertyReader.getProperty("baseUrl");

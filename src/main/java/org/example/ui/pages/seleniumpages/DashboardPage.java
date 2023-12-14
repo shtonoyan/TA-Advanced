@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Formatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,16 +56,16 @@ public class DashboardPage extends BaseSeleniumPage {
         dashboardDescriptionField.sendKeys(description);
     }
 
-    public void createDashboard(){
+    public void createDashboard() {
         addButton.click();
     }
 
-    public List<String> dashboardNames(){
+    public List<String> dashboardNames() {
         Wait.waitElementVisibility(addNewDashboardButton);
         return dashboards.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
-    public void deleteDashboard(String name){
+    public void deleteDashboard(String name) {
         WebElement deleteIcon = DriverManager.getDriver().findElement(By.xpath(String.format(deleteIconXpath, name)));
         Wait.waitElementToBeClickable(deleteIcon);
         deleteIcon.click();
@@ -74,7 +73,7 @@ public class DashboardPage extends BaseSeleniumPage {
         Action.clickWithJs(deleteButton);
     }
 
-    public void editDashboardDescription(String name){
+    public void editDashboardDescription(String name) {
         WebElement editIcon = DriverManager.getDriver().findElement(By.xpath(String.format(editIconXpath, name)));
         Wait.waitElementToBeClickable(editIcon);
         editIcon.click();
@@ -85,7 +84,7 @@ public class DashboardPage extends BaseSeleniumPage {
         updateButton.click();
     }
 
-    public String getDashboardDescription(String name){
+    public String getDashboardDescription(String name) {
         Wait.waitElementToBeClickable(addNewDashboardButton);
         WebElement element = DriverManager.getDriver().findElement(By.xpath(String.format(dashboardDescriptionXpath, name)));
         return element.getText();

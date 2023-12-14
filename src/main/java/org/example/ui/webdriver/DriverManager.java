@@ -1,16 +1,17 @@
 package org.example.ui.webdriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.Getter;
 import org.example.core.CustomLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.logging.Logger;
-
 
 public class DriverManager {
+    @Getter
     private static WebDriver driver = null;
-    private DriverManager(){
+
+    private DriverManager() {
     }
 
     public static void initDriver() {
@@ -20,10 +21,6 @@ public class DriverManager {
             driver.manage().window().maximize();
 
         }
-    }
-
-    public static WebDriver getDriver(){
-        return driver;
     }
 
     public static void quitDriver() {

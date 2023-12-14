@@ -7,7 +7,6 @@ import org.example.ui.PagePaths;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Condition.visible;
 
 public class LoginPage extends BaseSeleniumPage {
     @FindBy(css = "[name='login']")
@@ -17,6 +16,7 @@ public class LoginPage extends BaseSeleniumPage {
     private WebElement passwordField;
     @FindBy(css = "[type='submit']")
     private WebElement loginButton;
+
     @Override
     protected String getCurrentPagePath() {
         return PagePaths.LOGIN_PAGE;
