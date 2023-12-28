@@ -1,15 +1,17 @@
 package tests.testngtest.uitests;
 
+import org.example.api.services.DashboardApi;
 import org.example.core.PropertyReader;
 import org.example.ui.pages.seleniumpages.DashboardPage;
 import org.example.ui.pages.seleniumpages.LoginPage;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class DashboardTest extends BaseSeleniumTest {
+public class DashboardCreationTest extends BaseSeleniumTest {
     private final String dashboardName = "Test Dashboard";
     private final String dashboardDescription = "Random Description";
 
@@ -20,6 +22,13 @@ public class DashboardTest extends BaseSeleniumTest {
         loginPage.completeLogin(PropertyReader.getProperty("username"));
         loginPage.completePassword(PropertyReader.getProperty("password"));
         loginPage.clickLoginButton();
+    }
+
+    @AfterMethod
+    public void deleteDashboard() {
+        String project = PropertyReader.getProperty("testProject");
+        int dashboardId = DashboardApi.getDashboardId(accessToken, project, dashboardName);
+        DashboardApi.deleteDashboard(accessToken, project, dashboardId);
     }
 
     @Test
@@ -34,24 +43,5 @@ public class DashboardTest extends BaseSeleniumTest {
 
         dashboardPage.openPage();
         assertTrue(dashboardPage.dashboardNames().contains(dashboardName));
-    }
-
-    @Test(dependsOnMethods = "addNewDashboard")
-    public void editDashboard() {
-        DashboardPage dashboardPage = new DashboardPage();
-        dashboardPage.openPage();
-
-        dashboardPage.editDashboardDescription(dashboardName);
-        assertTrue(dashboardPage.getDashboardDescription(dashboardName).contains("edited"));
-    }
-
-
-    @Test(dependsOnMethods = {"editDashboard"})
-    public void deleteDashboard() {
-        DashboardPage dashboardPage = new DashboardPage();
-        dashboardPage.openPage();
-
-        dashboardPage.deleteDashboard(dashboardName);
-        assertFalse(dashboardPage.dashboardNames().contains(dashboardName));
     }
 }
