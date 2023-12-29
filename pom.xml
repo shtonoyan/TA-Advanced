@@ -30,7 +30,7 @@
               <version>3.1.2</version>
               <configuration>
                   <suiteXmlFiles>
-                      <suiteXmlFile>testng.xml</suiteXmlFile>
+                      <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                   </suiteXmlFiles>
                   <argLine>
                       -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -44,6 +44,11 @@
                       <artifactId>aspectjweaver</artifactId>
                       <version>1.9.7</version>
                       <scope>runtime</scope>
+                  </dependency>
+                  <dependency>
+                      <groupId>org.apache.maven.surefire</groupId>
+                      <artifactId>surefire-testng</artifactId>
+                      <version>3.1.2</version>
                   </dependency>
 
 
