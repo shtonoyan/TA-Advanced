@@ -8,6 +8,6 @@ public abstract class BaseApiTest extends BaseTest{
     protected static String accessToken;
     @BeforeSuite
     public void login(){
-        accessToken = AuthApi.authCall(PropertyReader.getProperty("username"), PropertyReader.getProperty("password"));
+        accessToken = AuthApi.authCall(System.getProperty("username"), System.getProperty("password"));
     }
 }
